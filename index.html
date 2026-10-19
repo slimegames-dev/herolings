@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herolings: Tiny Adventures</title>
+<meta name="description" content="Herolings: Tiny Adventures — เกมเก็บเลเวลฮีโร่จิ๋วสุดน่ารัก ลงทะเบียนล่วงหน้าบน Google Play">
+<meta property="og:title" content="Herolings: Tiny Adventures">
+<meta property="og:description" content="ฮีโร่จิ๋ว ผจญภัยไม่หยุด แม้ตอนคุณหลับ · Tiny heroes, endless adventure">
+<meta property="og:image" content="assets/bg_scene.jpg">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* 2026-10-19 theme = the game's popup look the user picked (style 6): white panels, blue -> purple rim and headers, navy text, gold buttons */
+:root{--bg:#eef0ff;--bg2:#e3e6ff;--card:#ffffff;--ink:#1e2460;--soft:#606aa0;--mute:#7a80ad;--line:#b0b8f0;--blue:#468cfa;--purple:#8c3cdb;--head:#6248d6;--gold:#ffcf3f;--goldsh:#c98a00;--orange:#cc6105;--pink:#e23d97;--grad:linear-gradient(90deg,#468cfa,#8c3cdb)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans Thai",system-ui,sans-serif}
+h1,h2,h3,.d{font-family:Mitr,"IBM Plex Sans Thai",sans-serif}
+a{color:var(--head)}a:hover{color:var(--purple)}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:var(--grad);box-shadow:0 4px 0 rgba(40,30,110,.35)}
+header:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 14px,rgba(255,255,255,0) 14px 28px);pointer-events:none}
+.nav{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:10px 20px;max-width:1200px;margin:0 auto}
+.nav img{height:52px;width:auto;filter:drop-shadow(0 2px 3px rgba(20,10,60,.4))}
+.links{display:flex;flex-wrap:wrap;gap:4px;flex:1 1 300px}
+.links a{color:#fff;text-decoration:none;padding:10px 12px;border-radius:12px;font-family:Mitr,sans-serif;text-shadow:0 2px 0 rgba(40,30,110,.5)}
+.links a:hover{background:rgba(255,255,255,.16);color:#fff}
+.lang{display:flex;background:rgba(20,15,80,.35);border-radius:999px;padding:4px;font-family:Mitr,sans-serif;font-size:14px}
+.lang button{border:0;background:none;color:#e9e6ff;padding:8px 14px;border-radius:999px;cursor:pointer;font:inherit;min-height:36px}
+.lang button.on{background:#fff;color:var(--head);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:14px;background:var(--gold);color:#3a2400;font-family:Mitr,sans-serif;font-weight:600;text-decoration:none;box-shadow:0 5px 0 var(--goldsh);transition:transform .12s}
+.btn:hover{transform:translateY(-2px);color:#3a2400}.btn:active{transform:translateY(2px)}
+.hero{position:relative;background:#1e2460 url("assets/bg_scene.jpg") center top/100% auto no-repeat}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,36,96,0) 44vw,rgba(30,36,96,.96) 55vw,#1e2460 57vw)}
+.hero .in{position:relative;z-index:1;width:100%;max-width:1200px;margin:0 auto;padding:48vw 20px 56px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;gap:16px;color:#fff}
+.hero .low{display:flex;flex-direction:column;align-items:center;gap:14px}
+.hero .logo{position:absolute;top:2.4vw;left:50%;transform:translateX(-50%);width:min(400px,25vw);filter:drop-shadow(0 10px 18px rgba(0,0,0,.4))}
+.hero h1{margin:0;font-weight:600;font-size:clamp(28px,4vw,46px);line-height:1.25;text-shadow:0 3px 0 #2a1d66,0 6px 18px rgba(0,0,0,.5)}
+.hero p{margin:0;max-width:640px;font-size:18px;color:#f1eeff;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+.stores{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;margin-top:6px}
+.badge{display:flex;align-items:center;justify-content:center;height:64px;min-width:200px;padding:0 18px;border-radius:12px;background:#000;border:2px solid #a6a6a6;color:#fff;text-decoration:none;font-family:Mitr,sans-serif;transition:transform .12s;box-shadow:0 10px 22px rgba(0,0,0,.3)}
+.badge:hover{transform:translateY(-2px);color:#fff}
+.badge img{height:60px;width:auto}
+.badge.soon{opacity:.6;cursor:default}
+.note{font-size:14px;color:var(--soft);margin:0}
+.hero .note{color:#e9e6ff}
+.count{font-family:Mitr,sans-serif;font-size:18px;color:#fff3c4;margin:4px 0 0}
+.count b{font-size:26px;color:var(--gold)}
+section{padding:72px 0}
+.alt{background:var(--bg2)}
+.head{text-align:center;margin-bottom:30px}
+.head .k{margin:0 auto 10px;display:inline-block;padding:5px 18px;border-radius:999px;background:var(--grad);color:#fff !important;font-family:Mitr,sans-serif;font-size:15px;letter-spacing:.5px;box-shadow:0 3px 0 rgba(40,30,110,.3)}
+.head h2{margin:0;font-weight:700;font-size:clamp(30px,3.4vw,42px);color:var(--ink)}
+.frame{background:var(--grad);padding:5px;border-radius:30px;box-shadow:0 10px 24px rgba(60,40,150,.18)}
+.panel{background:#fff;border-radius:26px;padding:32px 24px 28px}
+.bar{height:22px;background:#e3e6ff;border-radius:999px;border:2px solid var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--grad);border-radius:999px}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-top:26px}
+.tier{background:#f6f7ff;border-radius:20px;padding:18px 16px;text-align:center;border:3px dashed var(--line)}
+.tier.done{background:#fff7dc;border:3px solid #f0b43c}
+.tier.big{background:#fbefff;border-color:var(--purple)}
+.tier .n{font-family:Mitr,sans-serif;font-size:22px;font-weight:700;color:var(--head)}
+.tier.done .n{color:var(--orange)}.tier.big .n{color:var(--purple)}
+.tier .u{font-size:14px;color:var(--soft)}
+.tier .r{margin-top:10px;font-family:Mitr,sans-serif;font-size:17px;color:var(--ink)}
+.tier .s{margin-top:10px;display:inline-block;padding:4px 12px;border-radius:999px;background:#e3e6ff;color:var(--soft);font-size:13px}
+.tier.done .s{background:var(--gold);color:#3a2400;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.card{background:var(--grad);padding:5px;border-radius:26px;box-shadow:0 10px 22px rgba(60,40,150,.18)}
+.card .c{background:#fff;border-radius:22px;padding:12px 12px 20px;display:flex;flex-direction:column;gap:12px;height:100%}
+.card img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:16px}
+.card h3{margin:0 6px;font-size:22px;color:var(--head)}
+.card p{margin:0 6px;font-size:15px;color:var(--soft)}
+.heroes{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
+.heroes figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px}
+.heroes .pic{background:var(--grad);padding:5px;border-radius:34px;box-shadow:0 7px 0 #4a2fa3}
+.heroes img{display:block;width:146px;height:146px;object-fit:cover;border-radius:29px;background:#fff}
+.heroes figcaption{font-family:Mitr,sans-serif;font-size:17px;color:var(--ink)}
+.news{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.news div{display:flex;flex-direction:column;gap:6px;padding:20px 22px;background:#fff;border-radius:20px;border:2px solid var(--line)}
+.news .t{font-size:13px;color:var(--purple);font-family:Mitr,sans-serif}
+.news .h{font-family:Mitr,sans-serif;font-size:19px;color:var(--ink)}
+footer{padding:44px 0 56px;background:#1e2460;color:#fff}
+footer a{color:#cfd3ff}footer a:hover{color:#fff}
+.foot{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.foot nav{display:flex;flex-wrap:wrap;gap:18px;font-size:15px}
+.small{font-size:13px;color:#a7acd8;margin:20px 0 0}
+[data-en]{display:none}
+html[lang="en"] [data-th]{display:none}
+html[lang="en"] [data-en]{display:revert}
+@media (max-width:640px){
+  .links{display:none}
+  .nav{gap:8px;justify-content:space-between}.nav img{height:42px}
+  .nav .btn{min-height:42px;padding:0 14px;font-size:14px}
+  .lang button{padding:6px 10px}
+  .hero{min-height:0;background-color:#1e2460;background-size:178vw auto;background-position:center top;padding-top:94vw}
+  .hero:after{background:linear-gradient(180deg,rgba(30,36,96,0) 80vw,rgba(30,36,96,.95) 100vw,#1e2460 106vw)}
+  .hero .in{padding-bottom:48px}
+  .hero .logo{position:static;transform:none;width:min(300px,78%);margin-top:-8vw}
+  .hero .in{justify-content:flex-start;padding-top:0}
+  .hero{min-height:0}
+  .tiers{grid-template-columns:repeat(2,minmax(0,1fr))}.tier.big{grid-column:1/-1}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top"><img src="assets/logo.png" alt="Herolings: Tiny Adventures"></a>
+    <nav class="links" aria-label="Menu">
+      <a href="#rewards"><span data-th>รางวัลลงทะเบียน</span><span data-en>Rewards</span></a>
+      <a href="#features"><span data-th>ระบบเกม</span><span data-en>Features</span></a>
+      <a href="#heroes"><span data-th>ฮีโร่</span><span data-en>Heroes</span></a>
+      <a href="#news"><span data-th>ข่าวสาร</span><span data-en>News</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="th">TH</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <a class="btn js-play" href="#rewards"><span data-th>ลงทะเบียนล่วงหน้า</span><span data-en>Pre-register</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="in">
+      <img class="logo" src="assets/logo.png" alt="Herolings: Tiny Adventures">
+      <div class="low">
+      <h1><span data-th>ฮีโร่จิ๋ว ผจญภัยไม่หยุด แม้ตอนคุณหลับ</span><span data-en>Tiny heroes, endless adventure — even while you sleep</span></h1>
+      <p><span data-th>สะสมฮีโร่สุดน่ารัก ปล่อยสกิลอลังการ ล่าบอสคนเดียวหรือจับคู่กับเพื่อน เกมเก็บเลเวลที่ตัวละครสู้ให้คุณตลอดเวลา</span><span data-en>Collect adorable heroes, unleash dazzling skills and hunt bosses solo or with a friend. An idle RPG where your team keeps fighting for you.</span></p>
+      <div class="stores">
+        <a class="badge js-play" href="#" aria-label="Google Play"><span class="js-gp-label"><span data-th>ลงทะเบียนบน Google Play</span><span data-en>Pre-register on Google Play</span></span></a>
+        <span class="badge soon js-ios" aria-label="App Store"><span data-th>App Store · เร็ว ๆ นี้</span><span data-en>App Store · Coming soon</span></span>
+      </div>
+      <p class="note"><span data-th>Android: ลงทะเบียนล่วงหน้าได้แล้ว · iOS: เร็ว ๆ นี้</span><span data-en>Android: pre-registration open · iOS: coming soon</span></p>
+      <p class="count js-count" hidden><span data-th>ลงทะเบียนแล้ว</span><span data-en>Pre-registered:</span> <b class="js-num"></b> <span data-th>คน</span><span data-en>players</span></p>
+      </div>
+    </div>
+  </div>
+
+  <section id="rewards">
+    <div class="wrap">
+      <div class="head">
+        <p class="k"><span data-th>ยิ่งคนลงทะเบียนเยอะ รางวัลยิ่งใหญ่</span><span data-en>The more players join, the bigger the rewards</span></p>
+        <h2><span data-th>รางวัลลงทะเบียนล่วงหน้า</span><span data-en>Pre-registration rewards</span></h2>
+      </div>
+      <div class="frame"><div class="panel">
+        <div class="bar"><i class="js-bar" style="width:0%"></i></div>
+        <div class="tiers js-tiers"></div>
+      </div></div>
+      <div class="stores" style="margin-top:28px">
+        <a class="badge js-play" href="#" aria-label="Google Play"><span data-th>ลงทะเบียนบน Google Play</span><span data-en>Pre-register on Google Play</span></a>
+      </div>
+      <p class="note" style="text-align:center;margin-top:14px;color:var(--mute)"><span data-th>รางวัลทุกขั้นที่ปลดล็อก ส่งให้ผู้เล่นทุกคนทางจดหมายในเกมเมื่อเปิดให้บริการ</span><span data-en>Every unlocked reward is sent to all players by in-game mail at launch.</span></p>
+    </div>
+  </section>
+
+  <section id="features" class="alt">
+    <div class="wrap">
+      <div class="head">
+        <p class="k"><span data-th>ระบบเกม</span><span data-en>Features</span></p>
+        <h2><span data-th>เล่นง่าย แต่ลึกกว่าที่คิด</span><span data-en>Easy to play, deeper than it looks</span></h2>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="c"><img src="assets/ss_battle.jpg" alt="Battle screen" loading="lazy">
+          <h3><span data-th>สู้เองอัตโนมัติ</span><span data-en>Auto battles</span></h3>
+          <p><span data-th>ฮีโร่ตะลุยด่านให้ตลอด ปิดเกมไปก็ยังได้ของ กลับมาเก็บรางวัลแล้วอัปเกรดต่อ</span><span data-en>Your heroes clear stages nonstop. Close the game and still earn — come back, collect and upgrade.</span></p></div></article>
+        <article class="card"><div class="c"><img src="assets/ss_skill.jpg" alt="Arcane Nova skill" loading="lazy" style="object-position:center">
+          <h3><span data-th>สกิลอลังการ</span><span data-en>Dazzling skills</span></h3>
+          <p><span data-th>จัดชุดสกิลได้ 5 ช่อง พร้อมท่าไม้ตายของฮีโร่แต่ละตัว ยิ่งดาวสูง ความสามารถยิ่งโหด</span><span data-en>Build a 5-skill loadout plus each hero's ultimate. More stars, stronger powers.</span></p></div></article>
+        <article class="card"><div class="c"><img src="assets/ss_duo.jpg" alt="Duo Adventure" loading="lazy">
+          <h3><span data-th>จับคู่ผจญภัย</span><span data-en>Duo Adventure</span></h3>
+          <p><span data-th>ตะลุยมอนสเตอร์ 1,000 ตัวใน 15 นาที เล่นคนเดียวหรือคู่กับเพื่อน ชิงอันดับรายวัน</span><span data-en>Battle 1,000 monsters in 15 minutes, solo or with a friend, and climb the daily ranking.</span></p></div></article>
+        <article class="card"><div class="c"><img src="assets/ss_cards.jpg" alt="Card pick" loading="lazy">
+          <h3><span data-th>เลือกการ์ด พลิกเกม</span><span data-en>Pick cards, turn the tide</span></h3>
+          <p><span data-th>ระหว่างสู้ได้เลือกการ์ดสกิลและโบนัส แต่ละรอบไม่ซ้ำ วางแผนให้ดีเพื่อไปให้ไกลที่สุด</span><span data-en>Choose skill and bonus cards mid-fight. Every run is different — plan to go further.</span></p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="heroes">
+    <div class="wrap">
+      <div class="head">
+        <p class="k"><span data-th>ฮีโร่</span><span data-en>Heroes</span></p>
+        <h2><span data-th>ทีมจิ๋วแต่แจ๋ว รอคุณอยู่</span><span data-en>Small team, big power</span></h2>
+      </div>
+      <div class="heroes">
+        <figure><span class="pic"><img src="assets/hero_012.png" alt="Ruby"></span><figcaption>Ruby</figcaption></figure>
+        <figure><span class="pic"><img src="assets/hero_029.png" alt="Angel"></span><figcaption>Angel</figcaption></figure>
+        <figure><span class="pic"><img src="assets/hero_046.png" alt="Luna"></span><figcaption>Luna</figcaption></figure>
+        <figure><span class="pic"><img src="assets/hero_062.png" alt="Kitsu"></span><figcaption>Kitsu</figcaption></figure>
+        <figure><span class="pic"><img src="assets/hero_081.png" alt="Ella"></span><figcaption>Ella</figcaption></figure>
+        <figure><span class="pic"><img src="assets/hero_086.png" alt="Lotus"></span><figcaption>Lotus</figcaption></figure>
+      </div>
+      <p class="note" style="text-align:center;margin-top:24px;color:var(--mute)"><span data-th>และฮีโร่อีกมากมายให้สะสมในเกม</span><span data-en>And many more heroes to collect in game</span></p>
+    </div>
+  </section>
+
+  <section id="news" class="alt">
+    <div class="wrap">
+      <div class="head"><h2><span data-th>ข่าวสารล่าสุด</span><span data-en>Latest news</span></h2></div>
+      <div class="news js-news"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="d" style="font-size:20px;font-weight:600">Slime Games</div>
+        <div style="font-size:14px;color:var(--mute)"><span data-th>ติดต่อ</span><span data-en>Contact</span>: <a href="mailto:slimegames.dev@gmail.com">slimegames.dev@gmail.com</a></div>
+      </div>
+      <nav aria-label="Footer">
+        <a href="privacy.html"><span data-th>นโยบายความเป็นส่วนตัว</span><span data-en>Privacy Policy</span></a>
+        <a href="delete-account.html"><span data-th>ขอลบบัญชี</span><span data-en>Delete account</span></a>
+        <a class="js-yt" href="#" hidden>YouTube</a>
+      </nav>
+    </div>
+    <p class="small">© 2026 Slime Games · Google Play and the Google Play logo are trademarks of Google LLC. App Store is a trademark of Apple Inc.</p>
+  </div>
+</footer>
+
+<script>
+// =========================================================
+// EDIT HERE (Claude keeps this part up to date)
+// =========================================================
+var SITE = {
+  playUrl: "",            // the Google Play page, e.g. https://play.google.com/store/apps/details?id=com.slimegames.herolings
+  iosUrl: "",             // the App Store page (empty = "coming soon")
+  youtubeUrl: "",         // channel link (empty = hidden)
+  registered: null,       // real number from Play Console (null = hidden)
+  tiers: [                // pre-registration rewards (reward text: [th, en])
+    { at: 10000,  reward: ["ประกาศเร็ว ๆ นี้", "Coming soon"] },
+    { at: 30000,  reward: ["ประกาศเร็ว ๆ นี้", "Coming soon"] },
+    { at: 50000,  reward: ["ประกาศเร็ว ๆ นี้", "Coming soon"] },
+    { at: 100000, reward: ["ประกาศเร็ว ๆ นี้", "Coming soon"] },
+    { at: 200000, reward: ["รางวัลใหญ่ เร็ว ๆ นี้", "Grand prize soon"], big: true }
+  ],
+  news: [                 // [tag th, tag en, title th, title en, date]
+    ["ประกาศ", "News", "เว็บไซต์ Herolings เปิดแล้ว!", "The Herolings website is live!", "19 Oct 2026"]
+  ]
+};
+// =========================================================
+
+(function () {
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function two(th, en) { return '<span data-th>' + th + '</span><span data-en>' + en + '</span>'; }
+  function fmt(n) { return n.toLocaleString("en-US"); }
+
+  // links
+  document.querySelectorAll(".js-play").forEach(function (a) { if (SITE.playUrl) { a.href = SITE.playUrl; a.target = "_blank"; a.rel = "noopener"; } });
+  if (SITE.iosUrl) document.querySelectorAll(".js-ios").forEach(function (s) {
+    var a = el("a", "badge", two("ดาวน์โหลดบน App Store", "Download on the App Store")); a.href = SITE.iosUrl; a.target = "_blank"; a.rel = "noopener"; s.replaceWith(a);
+  });
+  if (SITE.youtubeUrl) { var yt = document.querySelector(".js-yt"); yt.href = SITE.youtubeUrl; yt.hidden = false; }
+
+  // count + tiers
+  var reg = SITE.registered;
+  if (typeof reg === "number") { document.querySelector(".js-num").textContent = fmt(reg); document.querySelector(".js-count").hidden = false; }
+  var box = document.querySelector(".js-tiers"), last = SITE.tiers[SITE.tiers.length - 1].at;
+  SITE.tiers.forEach(function (t) {
+    var done = typeof reg === "number" && reg >= t.at;
+    var c = el("div", "tier" + (done ? " done" : "") + (t.big ? " big" : ""));
+    c.innerHTML = '<div class="n">' + fmt(t.at) + '</div><div class="u">' + two("คน", "players") + '</div>'
+      + '<div class="r">' + two(t.reward[0], t.reward[1]) + '</div>'
+      + '<div class="s">' + (done ? two("ปลดล็อกแล้ว", "Unlocked") : two("ยังไม่ถึง", "Locked")) + '</div>';
+    box.appendChild(c);
+  });
+  document.querySelector(".js-bar").style.width = (typeof reg === "number" ? Math.min(100, reg / last * 100) : 0) + "%";
+
+  // news
+  var nb = document.querySelector(".js-news");
+  SITE.news.forEach(function (n) { nb.appendChild(el("div", "", '<span class="t">' + two(n[0], n[1]) + ' · ' + n[4] + '</span><span class="h">' + two(n[2], n[3]) + '</span>')); });
+
+  // language (remembered on this browser; ?lang=en works in links)
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.querySelectorAll(".lang button").forEach(function (b) { b.classList.toggle("on", b.dataset.lang === l); });
+    try { localStorage.setItem("hl_lang", l); } catch (e) {}
+  }
+  var q = new URLSearchParams(location.search).get("lang"), saved = null;
+  try { saved = localStorage.getItem("hl_lang"); } catch (e) {}
+  setLang(q === "en" || q === "th" ? q : saved || ((navigator.language || "th").slice(0, 2) === "th" ? "th" : "en"));
+  document.querySelectorAll(".lang button").forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.lang); }); });
+})();
+</script>
+</body>
+</html>
