@@ -45,33 +45,56 @@ header:before{content:"";position:absolute;inset:0;background:repeating-linear-g
 .badge:hover{transform:translateY(-2px);color:#fff}
 .badge img{height:60px;width:auto}
 .badge.soon{opacity:.6;cursor:default}
+.ban .badge.soon{opacity:.85}
+.if-open{display:none !important}html.open .if-open{display:revert !important}html.open .if-soon{display:none !important}
 .note{font-size:14px;color:var(--soft);margin:0}
 .hero .note{color:#e9e6ff}
-.count{font-family:Mitr,sans-serif;font-size:18px;color:#fff3c4;margin:4px 0 0}
-.count b{font-size:26px;color:var(--gold)}
-section{padding:72px 0}
+section{padding:72px 0;scroll-margin-top:84px}
 .alt{background:var(--bg2)}
 .head{text-align:center;margin-bottom:30px}
 .head .k{margin:0 auto 10px;display:inline-block;padding:5px 18px;border-radius:999px;background:var(--grad);color:#fff !important;font-family:Mitr,sans-serif;font-size:15px;letter-spacing:.5px;box-shadow:0 3px 0 rgba(40,30,110,.3)}
 .head h2{margin:0;font-weight:700;font-size:clamp(30px,3.4vw,42px);color:var(--ink)}
 .frame{background:var(--grad);padding:5px;border-radius:30px;box-shadow:0 10px 24px rgba(60,40,150,.18)}
 .panel{background:#fff;border-radius:26px;padding:32px 24px 28px}
-.bar{height:22px;background:#e3e6ff;border-radius:999px;border:2px solid var(--line);overflow:hidden}
-.bar i{display:block;height:100%;background:var(--grad);border-radius:999px}
-.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-top:26px}
-.tier{background:#f6f7ff;border-radius:20px;padding:18px 16px;text-align:center;border:3px dashed var(--line)}
-.tier.done{background:#fff7dc;border:3px solid #f0b43c}
-.tier.big{background:#fbefff;border-color:var(--purple)}
-.tier .n{font-family:Mitr,sans-serif;font-size:22px;font-weight:700;color:var(--head)}
-.tier.done .n{color:var(--orange)}.tier.big .n{color:var(--purple)}
-.tier .u{font-size:14px;color:var(--soft)}
-.tier .r{margin-top:10px;font-family:Mitr,sans-serif;font-size:17px;color:var(--ink)}
-.tier .s{margin-top:10px;display:inline-block;padding:4px 12px;border-radius:999px;background:#e3e6ff;color:var(--soft);font-size:13px}
-.tier.done .s{background:var(--gold);color:#3a2400;font-weight:600}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.head .sub{margin:10px auto 0;max-width:620px;color:var(--soft);font-size:17px}
+/* 2026-10-23 welcome gift banner (one fixed gift for every new player - no sign-up tiers); the user picked the event-banner look */
+.ban{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 520px;grid-template-areas:"t a" "c a";column-gap:20px;align-items:center;padding:46px 56px;border-radius:30px;background:var(--grad);box-shadow:0 8px 0 rgba(40,30,110,.35),0 18px 30px rgba(60,40,150,.18)}
+.ban:before{content:"";position:absolute;left:73%;top:50%;width:2200px;height:2200px;transform:translate(-50%,-50%);background:repeating-conic-gradient(rgba(255,255,255,.09) 0 7.5deg,rgba(255,255,255,0) 7.5deg 15deg)}
+.ban:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 73% 48%,rgba(255,255,255,.2),rgba(255,255,255,0) 42%)}
+.ban>*{position:relative;z-index:1}
+.bt{grid-area:t;align-self:end;color:#fff}
+.bc{grid-area:c;align-self:start;display:flex}
+.l1{margin:0;font:600 40px/1.25 Mitr,sans-serif;text-shadow:0 3px 0 #2a1d66}
+.l2{display:inline-block;margin:6px 0 18px;font:700 110px/1.05 Mitr,sans-serif;color:var(--gold);-webkit-text-stroke:12px #2a1d66;paint-order:stroke fill;text-shadow:0 9px 0 #2a1d66;transform:rotate(-3deg);transform-origin:left center}
+.gl{list-style:none;margin:0 0 26px;padding:0;font:500 18px/1.8 Mitr,sans-serif;text-shadow:0 2px 0 rgba(42,29,102,.5)}
+.gl b{color:var(--gold);margin-right:8px}
+.gl i{font-style:normal;font-size:15px;opacity:.85}
+.art{grid-area:a;width:520px;height:420px}
+.gi{position:absolute}
+.gi img{display:block;width:100%;filter:drop-shadow(0 10px 0 rgba(30,15,90,.3))}
+.gi .c{position:absolute;font:700 46px/1 Mitr,sans-serif;color:#fff;-webkit-text-stroke:9px #2a1d66;paint-order:stroke fill;white-space:nowrap}
+.gi-box{left:125px;top:46px;width:270px}
+.gi-box:before{content:"";position:absolute;left:-35%;top:-35%;right:-35%;bottom:-35%;background:radial-gradient(circle,rgba(255,226,120,.8),rgba(255,226,120,0) 60%)}
+.gi-box img{position:relative}
+.gi-box .c{right:2px;top:26px}
+.gi-gem{left:0;top:215px;width:200px;transform:rotate(-8deg)}
+.gi-gem .c{left:26px;bottom:-16px}
+.gi-tix{left:345px;top:250px;width:150px;height:150px}
+.gi-tix img{position:absolute;left:0;top:0}
+.gi-tix img:nth-child(1){transform:translate(-26px,4px) rotate(-18deg)}
+.gi-tix img:nth-child(2){transform:rotate(-4deg)}
+.gi-tix img:nth-child(3){transform:translate(28px,6px) rotate(12deg)}
+.gi-tix .c{right:-22px;bottom:-30px}
+html[lang="en"] .l2{font-size:76px;-webkit-text-stroke:10px #2a1d66;text-shadow:0 8px 0 #2a1d66}
+.spk{position:absolute;color:#fff;text-shadow:0 0 10px var(--gold);line-height:1}
+.how{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;margin:28px 0 0;padding:0;list-style:none;font-size:15px;color:var(--soft)}
+.how li{display:flex;align-items:center;gap:8px}
+.how b{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--grad);color:#fff;font-family:Mitr,sans-serif;font-size:14px;flex:none}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto}
+.swipe{display:none}
 .card{background:var(--grad);padding:5px;border-radius:26px;box-shadow:0 10px 22px rgba(60,40,150,.18)}
-.card .c{background:#fff;border-radius:22px;padding:12px 12px 20px;display:flex;flex-direction:column;gap:12px;height:100%}
-.card img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:16px}
+.card .c{background:#fff;border-radius:22px;padding:10px 10px 16px;display:flex;flex-direction:column;gap:12px;height:100%}
+.card img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px}
 .card h3{margin:0 6px;font-size:22px;color:var(--head)}
 .card p{margin:0 6px;font-size:15px;color:var(--soft)}
 .heroes{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
@@ -102,7 +125,20 @@ html[lang="en"] [data-en]{display:revert}
   .hero .logo{position:static;transform:none;width:min(300px,78%);margin-top:-8vw}
   .hero .in{justify-content:flex-start;padding-top:0}
   .hero{min-height:0}
-  .tiers{grid-template-columns:repeat(2,minmax(0,1fr))}.tier.big{grid-column:1/-1}
+  .ban{grid-template-columns:1fr;grid-template-areas:"t" "a" "c";justify-items:center;text-align:center;padding:34px 16px 30px;border-radius:24px}
+  .ban:before{left:50%;top:66%}.ban:after{background:radial-gradient(ellipse at 50% 64%,rgba(255,255,255,.2),rgba(255,255,255,0) 40%)}
+  .l1{font-size:26px}
+  .l2{font-size:74px;-webkit-text-stroke:9px #2a1d66;text-shadow:0 7px 0 #2a1d66;transform-origin:center;margin:4px 0 12px}
+  html[lang="en"] .l2{font-size:50px;-webkit-text-stroke:8px #2a1d66;text-shadow:0 6px 0 #2a1d66}
+  .gl{font-size:15.5px;line-height:1.75;margin:0}
+  .gl i{font-size:13px}
+  .art{transform:scale(.62);margin:-72px -99px -64px}
+  .how{flex-direction:column;align-items:flex-start;max-width:330px;margin:24px auto 0}
+  .cards{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:74%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 10px;scrollbar-width:none}
+  .cards::-webkit-scrollbar{display:none}
+  .card{scroll-snap-align:center}
+  .card p{font-size:14px}
+  .swipe{display:block;text-align:center;margin:10px 0 0;font-size:13px;color:var(--mute)}
   section{padding:56px 0}
 }
 </style>
@@ -113,7 +149,7 @@ html[lang="en"] [data-en]{display:revert}
   <div class="nav">
     <a href="#top"><img src="logo.png" alt="Herolings: Tiny Adventures"></a>
     <nav class="links" aria-label="Menu">
-      <a href="#rewards"><span data-th>รางวัลลงทะเบียน</span><span data-en>Rewards</span></a>
+      <a href="#rewards"><span data-th>ของขวัญผู้เล่นใหม่</span><span data-en>Welcome gift</span></a>
       <a href="#features"><span data-th>ระบบเกม</span><span data-en>Features</span></a>
       <a href="#heroes"><span data-th>ฮีโร่</span><span data-en>Heroes</span></a>
       <a href="#news"><span data-th>ข่าวสาร</span><span data-en>News</span></a>
@@ -137,8 +173,7 @@ html[lang="en"] [data-en]{display:revert}
         <a class="badge js-play" href="#" aria-label="Google Play"><span class="js-gp-label"><span data-th>ลงทะเบียนบน Google Play</span><span data-en>Pre-register on Google Play</span></span></a>
         <span class="badge soon js-ios" aria-label="App Store"><span data-th>App Store · เร็ว ๆ นี้</span><span data-en>App Store · Coming soon</span></span>
       </div>
-      <p class="note"><span data-th>Android: ลงทะเบียนล่วงหน้าได้แล้ว · iOS: เร็ว ๆ นี้</span><span data-en>Android: pre-registration open · iOS: coming soon</span></p>
-      <p class="count js-count" hidden><span data-th>ลงทะเบียนแล้ว</span><span data-en>Pre-registered:</span> <b class="js-num"></b> <span data-th>คน</span><span data-en>players</span></p>
+      <p class="note"><span class="if-open"><span data-th>Android: ลงทะเบียนล่วงหน้าได้แล้ว · iOS: เร็ว ๆ นี้</span><span data-en>Android: pre-registration open · iOS: coming soon</span></span><span class="if-soon"><span data-th>Android: เปิดลงทะเบียนล่วงหน้าเร็ว ๆ นี้ · iOS: เร็ว ๆ นี้</span><span data-en>Android: pre-registration opens soon · iOS: coming soon</span></span></p>
       </div>
     </div>
   </div>
@@ -146,17 +181,23 @@ html[lang="en"] [data-en]{display:revert}
   <section id="rewards">
     <div class="wrap">
       <div class="head">
-        <p class="k"><span data-th>ยิ่งคนลงทะเบียนเยอะ รางวัลยิ่งใหญ่</span><span data-en>The more players join, the bigger the rewards</span></p>
-        <h2><span data-th>รางวัลลงทะเบียนล่วงหน้า</span><span data-en>Pre-registration rewards</span></h2>
+        <p class="k"><span class="if-open"><span data-th>ลงทะเบียนล่วงหน้าได้แล้ว</span><span data-en>Pre-registration is open</span></span><span class="if-soon"><span data-th>เปิดลงทะเบียนล่วงหน้าเร็ว ๆ นี้</span><span data-en>Pre-registration opens soon</span></span></p>
+        <h2><span data-th>ของขวัญต้อนรับผู้เล่นใหม่</span><span data-en>Welcome gift for new players</span></h2>
       </div>
-      <div class="frame"><div class="panel">
-        <div class="bar"><i class="js-bar" style="width:0%"></i></div>
-        <div class="tiers js-tiers"></div>
-      </div></div>
-      <div class="stores" style="margin-top:28px">
-        <a class="badge js-play" href="#" aria-label="Google Play"><span data-th>ลงทะเบียนบน Google Play</span><span data-en>Pre-register on Google Play</span></a>
+      <div class="ban">
+        <div class="bt">
+          <p class="l1"><span data-th>เข้าเกมครั้งแรก</span><span data-en>Start playing and get</span></p>
+          <p class="l2"><span data-th>รับฟรี!</span><span data-en>FREE GIFTS!</span></p>
+          <ul class="gl js-gl"></ul>
+        </div>
+        <div class="art js-art" aria-hidden="true"></div>
+        <div class="bc"><a class="badge js-play" href="#" aria-label="Google Play"><span data-th>ลงทะเบียนบน Google Play</span><span data-en>Pre-register on Google Play</span></a></div>
       </div>
-      <p class="note" style="text-align:center;margin-top:14px;color:var(--mute)"><span data-th>รางวัลทุกขั้นที่ปลดล็อก ส่งให้ผู้เล่นทุกคนทางจดหมายในเกมเมื่อเปิดให้บริการ</span><span data-en>Every unlocked reward is sent to all players by in-game mail at launch.</span></p>
+      <ol class="how">
+        <li><b>1</b><span data-th>กดลงทะเบียนล่วงหน้าบน Google Play</span><span data-en>Pre-register on Google Play</span></li>
+        <li><b>2</b><span data-th>วันเปิดเกม Google Play จะแจ้งเตือนคุณ</span><span data-en>Google Play notifies you on launch day</span></li>
+        <li><b>3</b><span data-th>เข้าเกม เปิดกล่องจดหมาย รับของขวัญ</span><span data-en>Open the game, check your mail, claim the gift</span></li>
+      </ol>
     </div>
   </section>
 
@@ -167,19 +208,20 @@ html[lang="en"] [data-en]{display:revert}
         <h2><span data-th>เล่นง่าย แต่ลึกกว่าที่คิด</span><span data-en>Easy to play, deeper than it looks</span></h2>
       </div>
       <div class="cards">
-        <article class="card"><div class="c"><img src="ss_battle.jpg" alt="Battle screen" loading="lazy">
-          <h3><span data-th>สู้เองอัตโนมัติ</span><span data-en>Auto battles</span></h3>
-          <p><span data-th>ฮีโร่ตะลุยด่านให้ตลอด ปิดเกมไปก็ยังได้ของ กลับมาเก็บรางวัลแล้วอัปเกรดต่อ</span><span data-en>Your heroes clear stages nonstop. Close the game and still earn — come back, collect and upgrade.</span></p></div></article>
-        <article class="card"><div class="c"><img src="ss_skill.jpg" alt="Arcane Nova skill" loading="lazy" style="object-position:center">
-          <h3><span data-th>สกิลอลังการ</span><span data-en>Dazzling skills</span></h3>
-          <p><span data-th>จัดชุดสกิลได้ 5 ช่อง พร้อมท่าไม้ตายของฮีโร่แต่ละตัว ยิ่งดาวสูง ความสามารถยิ่งโหด</span><span data-en>Build a 5-skill loadout plus each hero's ultimate. More stars, stronger powers.</span></p></div></article>
-        <article class="card"><div class="c"><img src="ss_duo.jpg" alt="Duo Adventure" loading="lazy">
-          <h3><span data-th>จับคู่ผจญภัย</span><span data-en>Duo Adventure</span></h3>
-          <p><span data-th>ตะลุยมอนสเตอร์ 1,000 ตัวใน 15 นาที เล่นคนเดียวหรือคู่กับเพื่อน ชิงอันดับรายวัน</span><span data-en>Battle 1,000 monsters in 15 minutes, solo or with a friend, and climb the daily ranking.</span></p></div></article>
-        <article class="card"><div class="c"><img src="ss_cards.jpg" alt="Card pick" loading="lazy">
-          <h3><span data-th>เลือกการ์ด พลิกเกม</span><span data-en>Pick cards, turn the tide</span></h3>
-          <p><span data-th>ระหว่างสู้ได้เลือกการ์ดสกิลและโบนัส แต่ละรอบไม่ซ้ำ วางแผนให้ดีเพื่อไปให้ไกลที่สุด</span><span data-en>Choose skill and bonus cards mid-fight. Every run is different — plan to go further.</span></p></div></article>
+        <article class="card"><div class="c"><img data-th src="shot_th_1.jpg" alt="Battle" loading="lazy"><img data-en src="shot_en_1.jpg" alt="Battle" loading="lazy">
+          <p><span data-th>ฮีโร่ตะลุยด่านเองอัตโนมัติ ปล่อยสกิลอลังการ อัปเกรดพลังได้เรื่อย ๆ</span><span data-en>Heroes clear stages on their own and unleash flashy skills. Keep upgrading.</span></p></div></article>
+        <article class="card"><div class="c"><img data-th src="shot_th_2.jpg" alt="Duo Adventure" loading="lazy"><img data-en src="shot_en_2.jpg" alt="Duo Adventure" loading="lazy">
+          <p><span data-th>ตะลุยมอนสเตอร์ 1,000 ตัวใน 15 นาที คนเดียวหรือคู่กับเพื่อน ชิงอันดับรายวัน</span><span data-en>Battle 1,000 monsters in 15 minutes, solo or with a friend, and climb the daily ranking.</span></p></div></article>
+        <article class="card"><div class="c"><img data-th src="shot_th_3.jpg" alt="Card pick" loading="lazy"><img data-en src="shot_en_3.jpg" alt="Card pick" loading="lazy">
+          <p><span data-th>ระหว่างสู้ได้เลือกการ์ดสกิลและโบนัส แต่ละรอบไม่ซ้ำกัน</span><span data-en>Pick skill and bonus cards mid-fight. Every run is different.</span></p></div></article>
+        <article class="card"><div class="c"><img data-th src="shot_th_4.jpg" alt="Summon" loading="lazy"><img data-en src="shot_en_4.jpg" alt="Summon" loading="lazy">
+          <p><span data-th>สุ่มอัญเชิญฮีโร่ใหม่ ลุ้นฮีโร่ระดับ Mythic</span><span data-en>Summon new heroes and chase the Mythic ones.</span></p></div></article>
+        <article class="card"><div class="c"><img data-th src="shot_th_5.jpg" alt="Hero" loading="lazy"><img data-en src="shot_en_5.jpg" alt="Hero" loading="lazy">
+          <p><span data-th>อัปเลเวล สวมอุปกรณ์ และอัปดาวปลดความสามารถพิเศษ</span><span data-en>Level up, gear up and raise stars to unlock abilities.</span></p></div></article>
+        <article class="card"><div class="c"><img data-th src="shot_th_6.jpg" alt="Offline rewards" loading="lazy"><img data-en src="shot_en_6.jpg" alt="Offline rewards" loading="lazy">
+          <p><span data-th>ปิดเกมไปฮีโร่ก็ยังสู้ เก็บรางวัลได้สูงสุด 10 ชั่วโมง</span><span data-en>Heroes keep fighting while you're away: up to 10 hours of rewards.</span></p></div></article>
       </div>
+      <p class="swipe"><span data-th>เลื่อนดูเพิ่ม →</span><span data-en>Swipe for more →</span></p>
     </div>
   </section>
 
@@ -235,13 +277,12 @@ var SITE = {
   playUrl: "",            // the Google Play page, e.g. https://play.google.com/store/apps/details?id=com.slimegames.herolings
   iosUrl: "",             // the App Store page (empty = "coming soon")
   youtubeUrl: "",         // channel link (empty = hidden)
-  registered: null,       // real number from Play Console (null = hidden)
-  tiers: [                // pre-registration rewards (reward text: [th, en])
-    { at: 10000,  reward: ["ประกาศเร็ว ๆ นี้", "Coming soon"] },
-    { at: 30000,  reward: ["ประกาศเร็ว ๆ นี้", "Coming soon"] },
-    { at: 50000,  reward: ["ประกาศเร็ว ๆ นี้", "Coming soon"] },
-    { at: 100000, reward: ["ประกาศเร็ว ๆ นี้", "Coming soon"] },
-    { at: 200000, reward: ["รางวัลใหญ่ เร็ว ๆ นี้", "Grand prize soon"], big: true }
+  // welcome gift = the launch mail every new account gets (2026-10-23: 1,000 gems + Legendary hero box + 10 gear tickets)
+  // kind: "" / "star" (the big one in the middle) / "ticket" (dark circle behind a light icon)
+  gifts: [
+    { pic: "gift_gems.png",        cls: "gem", amt: "1,000", count: "1,000", name: ["เพชร", "Gems"] },
+    { pic: "gift_hero_box.png",    cls: "box", amt: "×1",    count: "x1",    name: ["กล่องเลือกฮีโร่ Legendary", "Legendary Hero Box"], note: ["เลือกเองได้", "your pick"] },
+    { pic: "gift_gear_ticket.png", cls: "tix", amt: "×10",   count: "x10",   name: ["ตั๋วสุ่มอุปกรณ์", "Equipment Tickets"], stack: 3 }
   ],
   news: [                 // [tag th, tag en, title th, title en, date]
     ["ประกาศ", "News", "เว็บไซต์ Herolings เปิดแล้ว!", "The Herolings website is live!", "19 Oct 2026"]
@@ -255,25 +296,27 @@ var SITE = {
   function fmt(n) { return n.toLocaleString("en-US"); }
 
   // links
-  document.querySelectorAll(".js-play").forEach(function (a) { if (SITE.playUrl) { a.href = SITE.playUrl; a.target = "_blank"; a.rel = "noopener"; } });
+  // Google Play: link = pre-registration open; empty = the badges say "coming soon" (Google opens pre-registration after the closed test)
+  if (SITE.playUrl) document.documentElement.classList.add("open");
+  document.querySelectorAll(".js-play").forEach(function (a) {
+    if (SITE.playUrl) { a.href = SITE.playUrl; a.target = "_blank"; a.rel = "noopener"; return; }
+    if (a.classList.contains("badge")) { var b = el("span", "badge soon", two("Google Play · เร็ว ๆ นี้", "Google Play · Coming soon")); b.setAttribute("aria-label", "Google Play"); a.replaceWith(b); }
+  });
   if (SITE.iosUrl) document.querySelectorAll(".js-ios").forEach(function (s) {
     var a = el("a", "badge", two("ดาวน์โหลดบน App Store", "Download on the App Store")); a.href = SITE.iosUrl; a.target = "_blank"; a.rel = "noopener"; s.replaceWith(a);
   });
   if (SITE.youtubeUrl) { var yt = document.querySelector(".js-yt"); yt.href = SITE.youtubeUrl; yt.hidden = false; }
 
-  // count + tiers
-  var reg = SITE.registered;
-  if (typeof reg === "number") { document.querySelector(".js-num").textContent = fmt(reg); document.querySelector(".js-count").hidden = false; }
-  var box = document.querySelector(".js-tiers"), last = SITE.tiers[SITE.tiers.length - 1].at;
-  SITE.tiers.forEach(function (t) {
-    var done = typeof reg === "number" && reg >= t.at;
-    var c = el("div", "tier" + (done ? " done" : "") + (t.big ? " big" : ""));
-    c.innerHTML = '<div class="n">' + fmt(t.at) + '</div><div class="u">' + two("คน", "players") + '</div>'
-      + '<div class="r">' + two(t.reward[0], t.reward[1]) + '</div>'
-      + '<div class="s">' + (done ? two("ปลดล็อกแล้ว", "Unlocked") : two("ยังไม่ถึง", "Locked")) + '</div>';
-    box.appendChild(c);
+  // welcome gift (list on the left + the picture on the right)
+  var gl = document.querySelector(".js-gl"), ga = document.querySelector(".js-art");
+  SITE.gifts.forEach(function (g) {
+    gl.appendChild(el("li", "", "<b>" + g.amt + "</b>" + two(g.name[0], g.name[1]) + (g.note ? " <i>(" + two(g.note[0], g.note[1]) + ")</i>" : "")));
+    var pics = ""; for (var k = 0; k < (g.stack || 1); k++) pics += '<img src="' + g.pic + '" alt="">';
+    ga.appendChild(el("div", "gi gi-" + g.cls, pics + '<span class="c">' + g.count + "</span>"));
   });
-  document.querySelector(".js-bar").style.width = (typeof reg === "number" ? Math.min(100, reg / last * 100) : 0) + "%";
+  [[95, 70, 30], [470, 30, 20], [300, 10, 16], [490, 230, 26], [40, 160, 18]].forEach(function (p) {
+    var sp = el("span", "spk", "✦"); sp.style.left = p[0] + "px"; sp.style.top = p[1] + "px"; sp.style.fontSize = p[2] + "px"; ga.appendChild(sp);
+  });
 
   // news
   var nb = document.querySelector(".js-news");
