@@ -111,6 +111,21 @@ footer a{color:#cfd3ff}footer a:hover{color:#fff}
 .foot{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
 .foot nav{display:flex;flex-wrap:wrap;gap:18px;font-size:15px}
 .small{font-size:13px;color:#a7acd8;margin:20px 0 0}
+/* 2026-10-27 official Discord (link set in SITE.discordUrl; everything with js-dc hides when it is empty) */
+[hidden]{display:none !important}
+.dci{width:24px;height:24px;flex:none}
+.dcb{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:#5865F2;color:#fff;box-shadow:0 5px 0 #3c45a5;transition:transform .12s}
+.dcb:hover{transform:translateY(-2px);color:#fff}.dcb:active{transform:translateY(2px)}
+.badge.dc{background:#5865F2;border-color:#8b93ff;gap:10px}.badge.dc .dci{width:30px;height:30px}
+.dsec{position:relative;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 30px;padding:40px 48px;border-radius:30px;background:linear-gradient(90deg,#5865F2,#8c3cdb);color:#fff;box-shadow:0 8px 0 rgba(40,30,110,.35),0 18px 30px rgba(60,40,150,.18)}
+.dsec:before{content:"";position:absolute;right:-60px;top:-70px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)}
+.dsec>*{position:relative}
+.dsec .dbig{width:84px;height:84px;flex:none;filter:drop-shadow(0 6px 0 rgba(30,20,90,.35))}
+.dsec .dt{flex:1 1 320px;display:flex;align-items:center;gap:22px}
+.dsec h2{margin:0;font-size:clamp(26px,3vw,36px);text-shadow:0 3px 0 #2a1d66}
+.dsec p{margin:4px 0 0;color:#eceaff;font-size:16px}
+.dsec ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font:500 15px Mitr,sans-serif}
+.dsec .btn{min-height:56px;padding:0 28px;font-size:18px;gap:10px}
 [data-en]{display:none}
 html[lang="en"] [data-th]{display:none}
 html[lang="en"] [data-en]{display:revert}
@@ -118,6 +133,8 @@ html[lang="en"] [data-en]{display:revert}
   .links{display:none}
   .nav{gap:8px;justify-content:space-between}.nav img{height:42px}
   .nav .btn{min-height:42px;padding:0 14px;font-size:14px}
+  .nav .dcb{display:none !important}  /* phone header has no room: the big Discord button sits under the title instead */
+  .dsec{padding:30px 22px;border-radius:24px;text-align:center;justify-content:center}.dsec .dt{flex-direction:column;gap:14px}.dsec ul{justify-content:center}.dsec .dbig{width:64px;height:64px}
   .lang button{padding:6px 10px}
   .hero{min-height:0;background-color:#1e2460;background-size:178vw auto;background-position:center top;padding-top:94vw}
   .hero:after{background:linear-gradient(180deg,rgba(30,36,96,0) 80vw,rgba(30,36,96,.95) 100vw,#1e2460 106vw)}
@@ -158,6 +175,7 @@ html[lang="en"] [data-en]{display:revert}
       <button type="button" data-lang="th">TH</button>
       <button type="button" data-lang="en">EN</button>
     </div>
+    <a class="dcb js-dc" href="#" target="_blank" rel="noopener" aria-label="Discord" title="Discord" hidden><svg class="dci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></a>
     <a class="btn js-play" href="#rewards"><span data-th>ลงทะเบียนล่วงหน้า</span><span data-en>Pre-register</span></a>
   </div>
 </header>
@@ -171,6 +189,7 @@ html[lang="en"] [data-en]{display:revert}
       <p><span data-th>สะสมฮีโร่สุดน่ารัก ปล่อยสกิลอลังการ ล่าบอสคนเดียวหรือจับคู่กับเพื่อน เกมเก็บเลเวลที่ตัวละครสู้ให้คุณตลอดเวลา</span><span data-en>Collect adorable heroes, unleash dazzling skills and hunt bosses solo or with a friend. An idle RPG where your team keeps fighting for you.</span></p>
       <div class="stores">
         <a class="badge js-play" href="#" aria-label="Google Play"><span class="js-gp-label"><span data-th>ลงทะเบียนบน Google Play</span><span data-en>Pre-register on Google Play</span></span></a>
+        <a class="badge dc js-dc" href="#" target="_blank" rel="noopener" aria-label="Discord" hidden><svg class="dci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span data-th>เข้าร่วม Discord</span><span data-en>Join our Discord</span></a>
         <span class="badge soon js-ios" aria-label="App Store"><span data-th>App Store · เร็ว ๆ นี้</span><span data-en>App Store · Coming soon</span></span>
       </div>
       <p class="note"><span class="if-open"><span data-th>Android: ลงทะเบียนล่วงหน้าได้แล้ว · iOS: เร็ว ๆ นี้</span><span data-en>Android: pre-registration open · iOS: coming soon</span></span><span class="if-soon"><span data-th>Android: เปิดลงทะเบียนล่วงหน้าเร็ว ๆ นี้ · iOS: เร็ว ๆ นี้</span><span data-en>Android: pre-registration opens soon · iOS: coming soon</span></span></p>
@@ -243,6 +262,26 @@ html[lang="en"] [data-en]{display:revert}
     </div>
   </section>
 
+  <section id="community" class="js-dc" hidden>
+    <div class="wrap">
+      <div class="dsec">
+        <div class="dt">
+          <svg class="dbig" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+          <div>
+            <h2><span data-th>เข้าร่วมคอมมูนิตี้ Herolings</span><span data-en>Join the Herolings community</span></h2>
+            <p><span data-th>เซิร์ฟเวอร์ Discord ทางการของเกม มีห้องแชทภาษาไทยและภาษาอังกฤษ</span><span data-en>Our official Discord server, with Thai and English chat.</span></p>
+            <ul>
+              <li><span data-th>📢 ข่าวและอัปเดตก่อนใคร</span><span data-en>📢 News &amp; updates first</span></li>
+              <li><span data-th>🎁 โค้ดของขวัญฟรี</span><span data-en>🎁 Free gift codes</span></li>
+              <li><span data-th>🤝 หาเพื่อนเล่น Duo</span><span data-en>🤝 Find Duo partners</span></li>
+            </ul>
+          </div>
+        </div>
+        <a class="btn js-dc" href="#" target="_blank" rel="noopener"><svg class="dci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span data-th>เข้าร่วม Discord</span><span data-en>Join Discord</span></a>
+      </div>
+    </div>
+  </section>
+
   <section id="news" class="alt">
     <div class="wrap">
       <div class="head"><h2><span data-th>ข่าวสารล่าสุด</span><span data-en>Latest news</span></h2></div>
@@ -262,6 +301,7 @@ html[lang="en"] [data-en]{display:revert}
         <a href="/privacy"><span data-th>นโยบายความเป็นส่วนตัว</span><span data-en>Privacy Policy</span></a>
         <a href="/terms"><span data-th>เงื่อนไขการใช้บริการ</span><span data-en>Terms of Service</span></a>
         <a href="/delete-account"><span data-th>ขอลบบัญชี</span><span data-en>Delete account</span></a>
+        <a class="js-dc" href="#" target="_blank" rel="noopener" hidden>Discord</a>
         <a class="js-yt" href="#" hidden>YouTube</a>
       </nav>
     </div>
@@ -277,6 +317,7 @@ var SITE = {
   playUrl: "",            // the Google Play page, e.g. https://play.google.com/store/apps/details?id=com.slimegames.herolings
   iosUrl: "",             // the App Store page (empty = "coming soon")
   youtubeUrl: "",         // channel link (empty = hidden)
+  discordUrl: "https://discord.gg/h7dGVb9M",   // 2026-10-27 official Discord invite (never expires; empty = all Discord buttons hidden)
   // welcome gift = the launch mail every new account gets (2026-10-23: 1,000 gems + Legendary hero box + 10 gear tickets)
   // kind: "" / "star" (the big one in the middle) / "ticket" (dark circle behind a light icon)
   gifts: [
@@ -285,6 +326,7 @@ var SITE = {
     { pic: "gift_gear_ticket.png", cls: "tix", amt: "×10",   count: "x10",   name: ["ตั๋วสุ่มอุปกรณ์", "Equipment Tickets"], stack: 3 }
   ],
   news: [                 // [tag th, tag en, title th, title en, date]
+    ["ประกาศ", "News", "เปิดเซิร์ฟเวอร์ Discord ทางการแล้ว!", "Our official Discord server is open!", "27 Oct 2026"],
     ["ประกาศ", "News", "เว็บไซต์ Herolings เปิดแล้ว!", "The Herolings website is live!", "19 Oct 2026"]
   ]
 };
@@ -305,6 +347,7 @@ var SITE = {
   if (SITE.iosUrl) document.querySelectorAll(".js-ios").forEach(function (s) {
     var a = el("a", "badge", two("ดาวน์โหลดบน App Store", "Download on the App Store")); a.href = SITE.iosUrl; a.target = "_blank"; a.rel = "noopener"; s.replaceWith(a);
   });
+  if (SITE.discordUrl) document.querySelectorAll(".js-dc").forEach(function (a) { if (a.tagName === "A") a.href = SITE.discordUrl; a.hidden = false; });
   if (SITE.youtubeUrl) { var yt = document.querySelector(".js-yt"); yt.href = SITE.youtubeUrl; yt.hidden = false; }
 
   // welcome gift (list on the left + the picture on the right)
