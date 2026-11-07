@@ -45,6 +45,10 @@ header:before{content:"";position:absolute;inset:0;background:repeating-linear-g
 .badge:hover{transform:translateY(-2px);color:#fff}
 .badge img{height:60px;width:auto}
 .badge.soon{opacity:.6;cursor:default}
+/* 2026-11-07 official Google Play badge (Google's own image, 646x250 with built-in padding; visible badge = 64px tall) */
+.badge.gp{background:none;border:0;padding:0;min-width:0;box-shadow:none;overflow:visible}
+.badge.gp img{height:95px;width:auto;margin:-15.5px -15.6px}
+.badge.gp img[data-th]{height:83.3px;margin:-9.7px 0} /* the Thai image is cropped differently: no side padding, 29px top/bottom */
 .ban .badge.soon{opacity:.85}
 .if-open{display:none !important}html.open .if-open{display:revert !important}html.open .if-soon{display:none !important}
 .note{font-size:14px;color:var(--soft);margin:0}
@@ -188,7 +192,7 @@ html[lang="en"] [data-en]{display:revert}
       <h1><span data-th>ฮีโร่จิ๋ว ผจญภัยไม่หยุด แม้ตอนคุณหลับ</span><span data-en>Tiny heroes, endless adventure — even while you sleep</span></h1>
       <p><span data-th>สะสมฮีโร่สุดน่ารัก ปล่อยสกิลอลังการ ล่าบอสคนเดียวหรือจับคู่กับเพื่อน เกมเก็บเลเวลที่ตัวละครสู้ให้คุณตลอดเวลา</span><span data-en>Collect adorable heroes, unleash dazzling skills and hunt bosses solo or with a friend. An idle RPG where your team keeps fighting for you.</span></p>
       <div class="stores">
-        <a class="badge js-play" href="#" aria-label="Google Play"><span class="js-gp-label"><span data-th>ลงทะเบียนบน Google Play</span><span data-en>Pre-register on Google Play</span></span></a>
+        <a class="badge gp js-play" href="#" aria-label="Google Play"><img data-th src="https://play.google.com/intl/en_us/badges/static/images/badges/th_badge_web_generic.png" alt="ดาวน์โหลดบน Google Play"><img data-en src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
         <span class="badge soon js-ios" aria-label="App Store"><span data-th>App Store · เร็ว ๆ นี้</span><span data-en>App Store · Coming soon</span></span>
       </div>
       <p class="note"><span class="if-open"><span data-th>Android: ลงทะเบียนล่วงหน้าได้แล้ว · iOS: เร็ว ๆ นี้</span><span data-en>Android: pre-registration open · iOS: coming soon</span></span><span class="if-soon"><span data-th>Android: เปิดลงทะเบียนล่วงหน้าเร็ว ๆ นี้ · iOS: เร็ว ๆ นี้</span><span data-en>Android: pre-registration opens soon · iOS: coming soon</span></span></p>
@@ -229,7 +233,7 @@ html[lang="en"] [data-en]{display:revert}
           <ul class="gl js-gl"></ul>
         </div>
         <div class="art js-art" aria-hidden="true"></div>
-        <div class="bc"><a class="badge js-play" href="#" aria-label="Google Play"><span data-th>ลงทะเบียนบน Google Play</span><span data-en>Pre-register on Google Play</span></a></div>
+        <div class="bc"><a class="badge gp js-play" href="#" aria-label="Google Play"><img data-th src="https://play.google.com/intl/en_us/badges/static/images/badges/th_badge_web_generic.png" alt="ดาวน์โหลดบน Google Play"><img data-en src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
       </div>
       <ol class="how">
         <li><b>1</b><span data-th>กดลงทะเบียนล่วงหน้าบน Google Play</span><span data-en>Pre-register on Google Play</span></li>
