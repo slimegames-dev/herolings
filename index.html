@@ -40,6 +40,7 @@ header:before{content:"";position:absolute;inset:0;background:repeating-linear-g
 .hero .logo{position:absolute;top:2.4vw;left:50%;transform:translateX(-47.4%);width:min(400px,25vw);filter:drop-shadow(0 10px 18px rgba(0,0,0,.4))}
 .hero h1{margin:0;font-weight:600;font-size:clamp(28px,4vw,46px);line-height:1.25;text-shadow:0 3px 0 #2a1d66,0 6px 18px rgba(0,0,0,.5)}
 .hero p{margin:0;max-width:640px;font-size:18px;color:#f1eeff;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+#get{scroll-margin-top:90px}
 .stores{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;margin-top:6px}
 .badge{display:flex;align-items:center;justify-content:center;height:64px;min-width:200px;padding:0 18px;border-radius:12px;background:#000;border:2px solid #a6a6a6;color:#fff;text-decoration:none;font-family:Mitr,sans-serif;transition:transform .12s;box-shadow:0 10px 22px rgba(0,0,0,.3)}
 .badge:hover{transform:translateY(-2px);color:#fff}
@@ -134,6 +135,8 @@ footer a{color:#cfd3ff}footer a:hover{color:#fff}
 html[lang="en"] [data-th]{display:none}
 html[lang="en"] [data-en]{display:revert}
 @media (max-width:640px){
+  .hero .stores{order:-2;margin-top:0}  /* 2026-11-12: phone - store buttons first, visible without scrolling */
+  .hero .note{order:-1}
   .links{display:none}
   .nav{gap:8px;justify-content:space-between}.nav img{height:42px}
   .nav .btn{min-height:42px;padding:0 14px;font-size:14px}
@@ -180,7 +183,7 @@ html[lang="en"] [data-en]{display:revert}
       <button type="button" data-lang="en">EN</button>
     </div>
     <a class="dcb js-dc" href="#" target="_blank" rel="noopener" aria-label="Discord" title="Discord" hidden><svg class="dci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></a>
-    <a class="btn js-play" href="#rewards"><span data-th>ลงทะเบียนล่วงหน้า</span><span data-en>Pre-register</span></a>
+    <a class="btn js-cta" href="#get"><span data-th>ลงทะเบียนล่วงหน้า</span><span data-en>Pre-register</span></a>
   </div>
 </header>
 
@@ -191,7 +194,7 @@ html[lang="en"] [data-en]{display:revert}
       <div class="low">
       <h1><span data-th>ฮีโร่จิ๋ว ผจญภัยไม่หยุด แม้ตอนคุณหลับ</span><span data-en>Tiny heroes, endless adventure — even while you sleep</span></h1>
       <p><span data-th>สะสมฮีโร่สุดน่ารัก ปล่อยสกิลอลังการ ล่าบอสคนเดียวหรือจับคู่กับเพื่อน เกมเก็บเลเวลที่ตัวละครสู้ให้คุณตลอดเวลา</span><span data-en>Collect adorable heroes, unleash dazzling skills and hunt bosses solo or with a friend. An idle RPG where your team keeps fighting for you.</span></p>
-      <div class="stores">
+      <div class="stores" id="get">
         <a class="badge gp js-play" href="#" aria-label="Google Play"><img data-th src="https://play.google.com/intl/en_us/badges/static/images/badges/th_badge_web_generic.png" alt="ดาวน์โหลดบน Google Play"><img data-en src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
         <span class="badge soon js-ios" aria-label="App Store"><span data-th>App Store · เร็ว ๆ นี้</span><span data-en>App Store · Coming soon</span></span>
       </div>
@@ -350,6 +353,17 @@ var SITE = {
   if (SITE.iosUrl) document.querySelectorAll(".js-ios").forEach(function (s) {
     var a = el("a", "badge", two("ดาวน์โหลดบน App Store", "Download on the App Store")); a.href = SITE.iosUrl; a.target = "_blank"; a.rel = "noopener"; s.replaceWith(a);
   });
+
+  // 2026-11-12 device: the header button and the store row follow the phone
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/i.test(ua);
+  document.querySelectorAll(".js-cta").forEach(function (a) {
+    if (isAndroid && SITE.playUrl) { a.href = SITE.playUrl; a.target = "_blank"; a.rel = "noopener"; }
+    else if (isIOS && SITE.iosUrl) { a.href = SITE.iosUrl; a.target = "_blank"; a.rel = "noopener"; }
+    else a.href = "#get";
+  });
+  if (isIOS) document.querySelectorAll(".stores").forEach(function (row) { var i = row.querySelector(".js-ios, a.badge:not(.gp)"); if (i) row.insertBefore(i, row.firstChild); });
   if (SITE.discordUrl) document.querySelectorAll(".js-dc").forEach(function (a) { if (a.tagName === "A") a.href = SITE.discordUrl; a.hidden = false; });
   if (SITE.youtubeUrl) { var yt = document.querySelector(".js-yt"); yt.href = SITE.youtubeUrl; yt.hidden = false; }
 
