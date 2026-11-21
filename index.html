@@ -121,6 +121,8 @@ footer a{color:#cfd3ff}footer a:hover{color:#fff}
 .dci{width:24px;height:24px;flex:none}
 .dcb{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:#5865F2;color:#fff;box-shadow:0 5px 0 #3c45a5;transition:transform .12s}
 .dcb:hover{transform:translateY(-2px);color:#fff}.dcb:active{transform:translateY(2px)}
+.fbb{background:#1877F2;box-shadow:0 5px 0 #0f4fa8}  /* 2026-11-21 Facebook button next to Discord */
+@media (max-width:1000px){.nav .fbb{display:none}}  /* narrow screens: keep the header on one line as before; Facebook stays in the footer */
 .badge.dc{background:#5865F2;border-color:#8b93ff;gap:10px}.badge.dc .dci{width:30px;height:30px}
 .dsec{position:relative;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 30px;padding:40px 48px;border-radius:30px;background:linear-gradient(90deg,#5865F2,#8c3cdb);color:#fff;box-shadow:0 8px 0 rgba(40,30,110,.35),0 18px 30px rgba(60,40,150,.18)}
 .dsec:before{content:"";position:absolute;right:-60px;top:-70px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)}
@@ -182,6 +184,7 @@ html[lang="en"] [data-en]{display:revert}
       <button type="button" data-lang="th">TH</button>
       <button type="button" data-lang="en">EN</button>
     </div>
+    <a class="dcb fbb js-fb" href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook" hidden><svg class="dci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
     <a class="dcb js-dc" href="#" target="_blank" rel="noopener" aria-label="Discord" title="Discord" hidden><svg class="dci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></a>
     <a class="btn js-cta" href="#get"><span data-th>ลงทะเบียนล่วงหน้า</span><span data-en>Pre-register</span></a>
   </div>
@@ -370,7 +373,7 @@ var SITE = {
   if (isIOS) document.querySelectorAll(".stores").forEach(function (row) { var i = row.querySelector(".js-ios, a.badge:not(.gp)"); if (i) row.insertBefore(i, row.firstChild); });
   if (SITE.discordUrl) document.querySelectorAll(".js-dc").forEach(function (a) { if (a.tagName === "A") a.href = SITE.discordUrl; a.hidden = false; });
   if (SITE.youtubeUrl) { var yt = document.querySelector(".js-yt"); yt.href = SITE.youtubeUrl; yt.hidden = false; }
-  if (SITE.facebookUrl) { var fb = document.querySelector(".js-fb"); fb.href = SITE.facebookUrl; fb.hidden = false; }
+  if (SITE.facebookUrl) document.querySelectorAll(".js-fb").forEach(function (a) { a.href = SITE.facebookUrl; a.hidden = false; });
   if (SITE.tiktokUrl) { var tt = document.querySelector(".js-tt"); tt.href = SITE.tiktokUrl; tt.hidden = false; }
 
   // welcome gift (list on the left + the picture on the right)
