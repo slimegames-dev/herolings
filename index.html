@@ -308,7 +308,9 @@ html[lang="en"] [data-en]{display:revert}
         <a href="/terms"><span data-th>เงื่อนไขการใช้บริการ</span><span data-en>Terms of Service</span></a>
         <a href="/delete-account"><span data-th>ขอลบบัญชี</span><span data-en>Delete account</span></a>
         <a class="js-dc" href="#" target="_blank" rel="noopener" hidden>Discord</a>
-        <a class="js-yt" href="#" hidden>YouTube</a>
+        <a class="js-fb" href="#" target="_blank" rel="noopener" hidden>Facebook</a>
+        <a class="js-tt" href="#" target="_blank" rel="noopener" hidden>TikTok</a>
+        <a class="js-yt" href="#" target="_blank" rel="noopener" hidden>YouTube</a>
       </nav>
     </div>
     <p class="small">© 2026 Slime Games · Google Play and the Google Play logo are trademarks of Google LLC. App Store is a trademark of Apple Inc.</p>
@@ -322,7 +324,9 @@ html[lang="en"] [data-en]{display:revert}
 var SITE = {
   playUrl: "https://play.google.com/store/apps/details?id=com.slimegames.herolings",            // the Google Play page, e.g. https://play.google.com/store/apps/details?id=com.slimegames.herolings
   iosUrl: "",             // the App Store page (empty = "coming soon")
-  youtubeUrl: "",         // channel link (empty = hidden)
+  youtubeUrl: "https://www.youtube.com/@HerolingsOfficial",   // channel link (empty = hidden)
+  facebookUrl: "https://www.facebook.com/HerolingsOfficial",  // 2026-11-21 Facebook page (empty = hidden)
+  tiktokUrl: "https://www.tiktok.com/@herolingsofficial",     // 2026-11-21 TikTok (empty = hidden)
   discordUrl: "https://discord.gg/nrGxMBaEj7",   // 2026-10-27 official Discord invite (never expires; empty = all Discord buttons hidden)
   // welcome gift = the launch mail every new account gets (2026-10-23: 1,000 gems + Legendary hero box + 10 gear tickets)
   // kind: "" / "star" (the big one in the middle) / "ticket" (dark circle behind a light icon)
@@ -366,6 +370,8 @@ var SITE = {
   if (isIOS) document.querySelectorAll(".stores").forEach(function (row) { var i = row.querySelector(".js-ios, a.badge:not(.gp)"); if (i) row.insertBefore(i, row.firstChild); });
   if (SITE.discordUrl) document.querySelectorAll(".js-dc").forEach(function (a) { if (a.tagName === "A") a.href = SITE.discordUrl; a.hidden = false; });
   if (SITE.youtubeUrl) { var yt = document.querySelector(".js-yt"); yt.href = SITE.youtubeUrl; yt.hidden = false; }
+  if (SITE.facebookUrl) { var fb = document.querySelector(".js-fb"); fb.href = SITE.facebookUrl; fb.hidden = false; }
+  if (SITE.tiktokUrl) { var tt = document.querySelector(".js-tt"); tt.href = SITE.tiktokUrl; tt.hidden = false; }
 
   // welcome gift (list on the left + the picture on the right)
   var gl = document.querySelector(".js-gl"), ga = document.querySelector(".js-art");
